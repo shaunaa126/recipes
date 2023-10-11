@@ -32,6 +32,8 @@ type Recipe {
   ingredients: [Ingredient]
   "A list of recipes that is related to this particular one, for discoverability"
   relatedRecipes: [Recipe]
+  "List of cookware used in the recipe"
+  cookware: [Cookware]
 }
 
 type Ingredient {
@@ -42,4 +44,8 @@ type Ingredient {
   name: String
   "A potential substitute for the ingredient, if available"
   substitute: String
+}
+
+type Cookware @key(fields: "name", resolvable: false) {
+  name: String!
 }
